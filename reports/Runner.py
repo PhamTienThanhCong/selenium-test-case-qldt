@@ -13,7 +13,7 @@ class HTMLTestRunner(TextTestRunner):
 
     time_format = "%Y-%m-%d_%H-%M-%S"
 
-    def __init__(self, output="../Report/ReportHTML/ReportTest", verbosity=2, stream=sys.stderr,
+    def __init__(self, output="./reports/ReportHTML/ReportTest", verbosity=2, stream=sys.stderr,
                  descriptions=True, failfast=False, buffer=False, report_name=None, template=None, resultclass=None,
                  add_timestamp=True, open_in_browser=False,
                  combine_reports=False, template_args=None):

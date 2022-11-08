@@ -7,8 +7,8 @@ def txt_password():
 
 
 def bnt_login():
-    return "//button[@type = 'LoginControl1$btnDangNhap']"
+    return "//input[@id = 'LoginControl1_btnDangNhap']"
 
 
 def msg_result():
-    return "//div[@id = 'LoginControl1_lblThong_bao']/div"
+    return "//*[@id='HeaderSV_LoginPanel2_lnkLogout']"

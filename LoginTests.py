@@ -9,7 +9,6 @@ from steps.ReadDataTest import readDatatest
 from steps.Step_login import stepLogin
 from verifys.Verify_login import verifyLogin
 
-
 dataTests = readDatatest().dataTestLogin()
 
 
