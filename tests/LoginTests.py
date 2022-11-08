@@ -1,0 +1,34 @@
+import unittest
+
+# import HTMLTestRunner class by reports folder
+
+
+from reports.Runner import HTMLTestRunner
+from parameterized import parameterized
+from steps.ReadDataTest import readDatatest
+from steps.Step_login import stepLogin
+from verifys.Verify_login import verifyLogin
+from utils.CustomChromeDriver import customChrome
+
+
+dataTests = readDatatest().dataTestLogin()
+
+
+class MyTestCase(unittest.TestCase):
+    def setUp(self):
+        print("========== [Begin Test] ==========")
+        self.browser = customChrome()
+        self.browser.get("https://qldt.phenikaa-uni.edu.vn/")
+
+    def tearDown(self):
+        self.browser.quit()
+        print("========== [ End Test ] ========== \n")
+
+    @parameterized.expand(dataTests)
+    def test_login(self, no, username, password, desiredResult, desiredMessage):
+        stepLogin(self.browser).login(username, password)
+        self.assertIn(desiredMessage, verifyLogin(self.browser).login())
+
+
+if __name__ == '__main__':
+    unittest.main(testRunner=HTMLTestRunner())

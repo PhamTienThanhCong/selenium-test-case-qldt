@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>{{ title }}</title>
+
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet" type="text/css" href="../TemplateReport/fontawesome-free-5.7.2-web/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="../TemplateReport/fontawesome-free-5.7.2-web/css/v4-shims.min.css">
+
+    <!-- JQuery -->
+    <script type="text/javascript" src="../TemplateReport/scripts/jquery-1.11.1.min.js"></script>
+    <link rel="stylesheet" type="text/css"
+          href="../TemplateReport/chartist/chartist-plugin-tooltip/dist/chartist-plugin-tooltip.min.css">
+    <link rel="stylesheet" type="text/css" href="../TemplateReport/chartist/dist/chartist.min.css">
+    <script src="../TemplateReport/chartist/dist/chartist.min.js"></script>
+    <script src="../TemplateReport/chartist/chartist-plugin-tooltip/dist/chartist-plugin-tooltip.min.js"></script>
+    <!-- Required Stylesheets -->
+    <link href="../TemplateReport/bootstrap-treeview/dist/bootstrap-treeview.min.css" rel="stylesheet">
+
+    <!-- Required Javascript -->
+    <script src="../TemplateReport/bootstrap-treeview/dist/bootstrap-treeview.min.js"></script><!-- DataTables -->
+    <link type="text/css" href="../TemplateReport/datatables/1.10.19/datatables.min.css" rel="stylesheet"/>
+    <script type="text/javascript" src="../TemplateReport/datatables/1.10.19/datatables.min.js"></script>
+
+    <link href="../TemplateReport/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <script src="../TemplateReport/bootstrap/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="../TemplateReport/datatables/1.10.19/datatables.bootstrap4.min.js"></script>
+    <link type="text/css" href="../TemplateReport/datatables/1.10.19/datatables.bootstrap4.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="../TemplateReport/css/core.css"/>
+    <link rel="stylesheet" href="../TemplateReport/css/link.css"/>
+    <link type="text/css" media="screen" href="../TemplateReport/css/screen.css" rel="Stylesheet"/><!-- JQuery-UI -->
+    <link type="text/css" href="../TemplateReport/jqueryui/1.11.2-start/jquery-ui.min.css" rel="Stylesheet"/>
+    <script type="text/javascript" src="../TemplateReport/jqueryui/1.11.2-start/jquery-ui.min.js"></script><!-- DataTables -->
+    <link type="text/css" href="../TemplateReport/datatables/1.10.19/datatables.min.css" rel="stylesheet"/>
+    <script type="text/javascript" src="../TemplateReport/datatables/1.10.19/datatables.min.js"></script>
+
+    <link href="../TemplateReport/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <script src="../TemplateReport/bootstrap/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="../TemplateReport/datatables/1.10.19/datatables.bootstrap4.min.js"></script>
+    <link type="text/css" href="../TemplateReport/datatables/1.10.19/datatables.bootstrap4.min.css" rel="stylesheet"/>
+
+    <script class="code" type="text/javascript">$(document).ready(function () {
+
+            $('.scenario-result-table').DataTable({
+                "order": [[0, "asc",], [3, "asc",]],
+                "pageLength": 10,
+                "language": {
+                    searchPlaceholder: "Filter",
+                    search: ""
+                }
+            });
+
+            // Results table
+            $('#test-results-table').DataTable({
+                "order": [[0, "asc",], [3, "asc",]],
+                "pageLength": 10,
+                "lengthMenu": [[10, 25, 50, 100, 200, -1], [10, 25, 50, 100, 200, "All"]]
+            });
+
+            $('#evidence-table').DataTable({
+                searching: false,
+                paging: false,
+                info: false
+            });
+
+            $(".feature-coverage-table").DataTable({
+                searching: false,
+                paging: false,
+                info: false
+            });
+
+            $(".feature-coverage-table-with-pagination").DataTable({
+                order: [[0, "asc",]],
+                pageLength: 10,
+                language: {
+                    searchPlaceholder: "Filter",
+                    search: ""
+                }
+            });
+        });
+
+    </script>
+</head>
+
+<body class="results-page">
+    <div id="topheader">
+        <div id="topbanner">
+            <div id="logo"><a href="#"><img src="../TemplateReport/images/logo.png" border="0" width="200px"/></a></div>
+            <div id="projectname-banner" style="float:right">
+                <span class="projectname">
+                    <span class="projecttitle">Automation test project</span>
+                    <span class="projectsubtitle"></span>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="middlecontent">
+
+        <div class="clr"></div>
+        <!--/* starts second table*/-->
+        <div>
+            <ul class="nav nav-tabs" role="tablist">
+                <li class="active">
+                    <a href="#"><i class="fa fa-check-square-o"></i> Overall Test Results</a>
+                </li>
+            </ul>
+            <span class="date-and-time"><a href="build-info.html"><i class="fa fa-info-circle"></i></a> Report generated {{ header_info.start_time.strftime("%Y-%m-%d %H:%M:%S") }}</span>
+            <br style="clear:left"/>
+        </div>
+        <div class="clr"></div>
+        <div id="beforetable"></div>
+        <div id="results-dashboard">
+            <div class="middlb">
+                <div class="table">
+
+                    <h2>Test Results: All Tests</h2>
+                    <table class='overview'>
+                        <tr>
+                            <td width="375px" valign="top">
+                                <div class="test-count-summary">
+                                    <div class="test-count-title">
+                                        {{ header_info.status.total }} test scenarios
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <ul class="nav nav-tabs">
+                                        <li class="active">
+                                            <a data-toggle="tab" href="#summary"><i class="fas fa-home"></i> Summary</a>
+                                        </li>
+                                        <li>
+                                            <a data-toggle="tab" href="#tests"><i class="fas fa-tachometer-alt"></i> Test
+                                                Results</a>
+                                        </li>
+                                    </ul>
+
+                                    <div class="card border">
+                                        <div class="tab-content" id="pills-tabContent">
+                                            <div id="summary" class="tab-pane fade in active">
+                                                <div class="container-fluid">
+                                                    <div class="row">
+                                                        <div class="col-sm-4">
+                                                            <div style="width:300px;"
+                                                                 class="chart-container automated-and-manual-results">
+                                                                <div class="ct-chart ct-square"></div>
+                                                            </div>
+                                                            <script>
+                                                                    var labels = [
+                                                                        {% if header_info.status.success %}"{{ header_info.status.successPercentage }}"{% endif %},
+                                                                        {% if header_info.status.failure %}"{{ header_info.status.failurePercentage }}"{% endif %},
+                                                                        {% if header_info.status.error %}"{{ header_info.status.errorPercentage }}"{% endif %},
+                                                                        {% if header_info.status.skip %}"{{ header_info.status.skipPercentage }}"{% endif %}];
+
+                                                                    var series = [
+                                                                        {% if header_info.status.success %}{meta: 'Passing tests (automated)', value: {{ header_info.status.success }}}{% endif %},
+                                                                        {% if header_info.status.failure %}{meta: 'Failing tests (automated)', value: {{ header_info.status.failure }}}{% endif %},
+                                                                        {% if header_info.status.error %}{meta: 'Broken tests (automated)', value: {{ header_info.status.error }}}{% endif %},
+                                                                        {% if header_info.status.skip %}{meta: 'Skipped tests (automated)', value: {{ header_info.status.skip }}}{% endif %}];
+
+                                                                    var options = {
+                                                                        width: 350,
+                                                                        height: 300
+                                                                    };
+                                                                    new Chartist.Pie('.ct-chart', {
+                                                                        series: series,
+                                                                        labels: labels
+                                                                    }, {
+                                                                        plugins: [Chartist.plugins.tooltip()],
+                                                                        donut: true,
+                                                                        donutWidth: 60,
+                                                                        donutSolid: true,
+                                                                        startAngle: 270,
+                                                                        showLabel: true
+                                                                    }, options);
+                                                                    $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+                                                                        new Chartist.Pie('.ct-chart', {
+                                                                            series: series,
+                                                                            labels: labels
+                                                                        }, {
+                                                                            plugins: [Chartist.plugins.tooltip()],
+                                                                            donut: true,
+                                                                            donutWidth: 60,
+                                                                            donutSolid: true,
+                                                                            startAngle: 270,
+                                                                            showLabel: true
+                                                                        }, options);
+                                                                    });
+                                                            </script>
+                                                        </div>
+                                                        <div class="col-sm-8">
+
+                                                            <table class="table">
+                                                                <thead>
+                                                                <tr>
+                                                                    <th scope="col">Scenario Results (including rows of test
+                                                                        data)
+                                                                    </th>
+                                                                    <th scope="col" colspan="2" class="automated-stats">
+                                                                        Automated
+                                                                    </th>
+                                                                </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                <tr>
+                                                                    <td class="aggregate-result-count">
+                                                                        <i
+                                                                                class='fa fa-check-circle-o success-icon'></i>&nbsp;Passing
+                                                                    </td>
+                                                                    <td class="automated-stats">{{ header_info.status.success }}</td>
+                                                                    <td class="automated-stats">{{ header_info.status.successPercentage }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="aggregate-result-count"><i
+                                                                            class='fa fa-fast-forward skip-icon'></i>&nbsp;Skipped
+                                                                    </td>
+                                                                    <td class="automated-stats">{{ header_info.status.skip}}</td>
+                                                                    <td class="automated-stats">{{ header_info.status.skipPercentage }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td colspan="3"><i
+                                                                            class='fa fa-times failure-icon'></i>&nbsp;<em>Unsuccessful</em>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="aggregate-result-count indented-error-category">
+                                                                        <i
+                                                                                class='fa fa-times-circle failure-icon'></i>&nbsp;Failed
+                                                                    </td>
+                                                                    <td class="automated-stats">{{ header_info.status.failure }}</td>
+                                                                    <td class="automated-stats">{{ header_info.status.failurePercentage }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="aggregate-result-count indented-error-category">
+                                                                        <i
+                                                                                class='fa fa-exclamation-triangle error-icon'></i>&nbsp;Error
+                                                                    </td>
+                                                                    <td class="automated-stats">{{ header_info.status.error}}</td>
+                                                                    <td class="automated-stats">{{ header_info.status.errorPercentage }}</td>
+                                                                </tr>
+                                                                <tr class="summary-stats">
+                                                                    <td class="aggregate-result-count">Total</td>
+                                                                    <td class="automated-stats">{{ header_info.status.total}}</td>
+                                                                    <td class="automated-stats"></td>
+                                                                </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="col-sm-12">
+                                                            <table class="table">
+                                                                <thead>
+                                                                <tr>
+                                                                    <th>Execution Time</th>
+                                                                </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                <tr>
+                                                                    <td>{{ header_info.status.duration }}</td>
+                                                                </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div id="tests" class="tab-pane fade">
+                                                <div class="container-fluid">
+                                                    <div class="row">
+                                                        <div class="col-sm-12">
+                                                            <h3><i class="fas fa-cogs"></i> Automated Tests</h3>
+
+                                                            <table class="scenario-result-table table"
+                                                                   id="scenario-results">
+                                                                <thead>
+                                                                <tr>
+                                                                    <th class="test-name-column">Test Case</th>
+                                                                    <th>Status</th>
+                                                                    <th></th>
+                                                                </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                {%- for test_case_name, tests_results in all_results.items() %}
+                                                                {%- if tests_results %}
+                                                                {%- for test_case in tests_results %}
+                                                                {%- if not test_case.subtests is defined %}
+                                                                <tr class='{{ status_tags[test_case.outcome] }}'>
+                                                                    <td class="col-xs-10">{{ test_case.test_id.split(".")[-1] }}
+                                                                    </td>
+                                                                    <td class="col-xs-1">
+                                                                        <span class="label label-{{ status_tags[test_case.outcome] }}"
+                                                                              style="display:block;width:40px;">
+                                                                            {%- if test_case.outcome == test_case.SUCCESS -%}
+                                                                                Pass
+                                                                            {%- elif test_case.outcome == test_case.SKIP -%}
+                                                                                Skip
+                                                                            {%- elif test_case.outcome == test_case.FAILURE -%}
+                                                                                Fail
+                                                                            {%- else -%}
+                                                                                Error
+                                                                            {%- endif -%}
+                                                                        </span>
+                                                                    </td>
+                                                                    <td class="col-xs-1">
+                                                                        {%- if (test_case.stdout or test_case.err) %}
+                                                                        <button class="btn btn-default btn-xs">+</button>
+                                                                        {%- endif %}
+                                                                    </td>
+                                                                </tr>
+                                                                {%- if (test_case.stdout or test_case.err or test_case.err)
+                                                                and test_case.outcome != test_case.SKIP %}
+                                                                <tr style="display:none;">
+                                                                    <td class="col-xs-9" colspan="3">
+                                                                        {%- if test_case.stdout %}
+                                                                        <pre>{{ test_case.stdout }}</pre>
+                                                                        {% endif %}
+                                                                        {%- if test_case.err %}<p style="color:maroon;">{{
+                                                                        test_case.err[0].__name__ }}: {{ test_case.err[1]
+                                                                        }}</p>{% endif %}
+                                                                        {%- if test_case.err %}<p style="color:maroon;">{{
+                                                                        test_case.test_exception_info }}</p>{% endif %}
+                                                                    </td>
+                                                                </tr>
+                                                                {%- endif %}
+                                                                {%- if (test_case.stdout or test_case.err or test_case.err)
+                                                                and test_case.outcome == test_case.SKIP %}
+                                                                <tr style="display:none;">
+                                                                    <td class="col-xs-9" colspan="3">
+                                                                        {%- if test_case.stdout %}
+                                                                        <pre>{{ test_case.stdout }}</pre>
+                                                                        {% endif %}
+                                                                        {%- if test_case.err %}<p style="color:maroon;">{{
+                                                                        test_case.err }}</p>{% endif %}
+                                                                    </td>
+                                                                </tr>
+                                                                {%- endif %}
+                                                                {%- else %}
+                                                                <tr class='{{ status_tags[test_case.outcome] }}'>
+                                                                    <td class="col-xs-10">{{
+                                                                        test_case.test_id.split(".")[-1] }}
+                                                                    </td>
+                                                                    <td class="col-xs-1">
+                                                                                <span class="label label-{{ status_tags[test_case.outcome] }}"
+                                                                                      style="display:block;width:40px;">
+                                                                                    {%- if test_case.outcome == test_case.SUCCESS -%}
+                                                                                        Pass
+                                                                                    {%- else -%}
+                                                                                        Fail
+                                                                                    {%- endif -%}
+                                                                                </span>
+                                                                    </td>
+                                                                    <td class="col-xs-1">
+                                                                        {%- if test_case.subtests %}
+                                                                        <button class="btn btn-default btn-xs">+</button>
+                                                                        {%- endif %}
+                                                                    </td>
+                                                                </tr>
+                                                                {%- if test_case.subtests %}
+                                                                <tr style="display:none;">
+                                                                    <td colspan="3">
+
+                                                                        <table class='table table-hover table-responsive'>
+                                                                            <tbody>
+                                                                            {%- for subtest in test_case.subtests %}
+                                                                            <tr class='{{ status_tags[subtest.outcome] }}'>
+                                                                                <td class="col-xs-10">{{
+                                                                                    subtest.test_id.split(".")[-1] }}
+                                                                                </td>
+                                                                                <td class="col-xs-1">
+                                                                                                <span class="label label-{{ status_tags[subtest.outcome] }}"
+                                                                                                      style="display:block;width:40px;">
+                                                                                                {%- if subtest.outcome == subtest.SUCCESS -%}
+                                                                                                    Pass
+                                                                                                {%- else -%}
+                                                                                                    Fail
+                                                                                                {%- endif -%}
+                                                                                                </span>
+                                                                                </td>
+                                                                                <td class="col-xs-1">
+                                                                                    {%- if subtest.err %}
+                                                                                    <button class="btn btn-default btn-xs">+</button>
+                                                                                    {%- endif %}
+                                                                                </td>
+                                                                            </tr>
+                                                                            {%- if subtest.err or subtest.err %}
+                                                                            <tr style="display:none;">
+                                                                                <td class="col-xs-9" colspan="3">
+                                                                                    {%- if subtest.err %}<p
+                                                                                        style="color:maroon;">{{
+                                                                                    subtest.err[0].__name__ }}: {{
+                                                                                    subtest.err[1] }}</p>{% endif %}
+                                                                                    {%- if subtest.err %}<p
+                                                                                        style="color:maroon;">{{
+                                                                                    subtest.test_exception_info }}</p>{%
+                                                                                    endif %}
+                                                                                </td>
+                                                                            </tr>
+                                                                            {%- endif %}
+                                                                            {% endfor %}
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </td>
+                                                                </tr>
+                                                                {%- endif %}
+                                                                {%- endif %}
+                                                                {%- endfor %}
+                                                                {%- endif %}
+                                                                {%- endfor %}
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="beforefooter"></div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <span class="version">Report</span>
+            </div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script type="text/javascript">
+            $(document).ready(function(){
+                $('td').on('click', '.btn', function(e){
+                    e.preventDefault();
+                    e.stopImmediatePropagation();
+                    var $this = $(this);
+                    var $nextRow = $this.closest('tr').next('tr');
+                    $nextRow.slideToggle("fast");
+                    $this.text(function(i, text){
+                        if (text === '+') {
+                            return '-';
+                        } else {
+                            return '+';
+                        };
+                    });
+                });
+            });
+    </script>
+</body>
+</html>
