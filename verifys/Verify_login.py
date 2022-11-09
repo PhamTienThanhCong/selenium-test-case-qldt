@@ -2,7 +2,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-from pages.Page_login import msg_result
+from pages.Page_login import msg_result, msg_result_error
 
 
 class verifyLogin:
@@ -10,7 +10,6 @@ class verifyLogin:
         self.driver = driver
 
     def login(self):
-        self.waitLoginFinish()
         contentMessage = self.waitLoginFinish()
 
         return contentMessage
@@ -18,10 +17,11 @@ class verifyLogin:
     # Get element
     def waitLoginFinish(self):
         print("[+] Wait login finish")
-        if self.driver.find_element(By.XPATH, msg_result()).text:
-            print("Login success")
-            return self.driver.find_element(By.XPATH, msg_result()).text
+        # get url after login
+        url = self.driver.current_url
+        if url != "https://qldt.phenikaa-uni.edu.vn/":
+            return "done"
         else:
-            print("Login fail")
-            return True
+            print("[-] Login fail")
+            return "fail"
         # return WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((By.XPATH, msg_result())))

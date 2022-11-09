@@ -1,7 +1,5 @@
 import unittest
 
-
-
 from utils.CustomChromeDriver import customChrome
 from reports.Runner import HTMLTestRunner
 from parameterized import parameterized
@@ -9,8 +7,7 @@ from steps.ReadDataTest import readDatatest
 from steps.Step_login import stepLogin
 from verifys.Verify_login import verifyLogin
 
-dataTests = readDatatest().dataTestLogin()
-
+dataTests = readDatatest().dataTestLogin("./dataTest/Data_testLogin.xlsx") 
 
 class MyTestCase(unittest.TestCase):
     def setUp(self):
@@ -23,9 +20,11 @@ class MyTestCase(unittest.TestCase):
         print("========== [ End Test ] ========== \n")
 
     @parameterized.expand(dataTests)
-    def test_login(self, no, username, password, desiredResult, desiredMessage):
+    def test_login(self, no, username, password):
         stepLogin(self.browser).login(username, password)
-        self.assertIn(desiredMessage, verifyLogin(self.browser).login())
+        self.assertIn("done", verifyLogin(self.browser).login())
+
+        print("Test is successful")
 
 
 if __name__ == '__main__':

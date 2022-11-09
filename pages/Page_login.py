@@ -12,3 +12,6 @@ def bnt_login():
 
 def msg_result():
     return "//*[@id='HeaderSV_LoginPanel2_lnkLogout']"
+
+def msg_result_error():
+    return "//*[@id='LoginControl1_lblThong_bao']"

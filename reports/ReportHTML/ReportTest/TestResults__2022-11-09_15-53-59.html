@@ -114,7 +114,7 @@
                     <a href="#"><i class="fa fa-check-square-o"></i> Overall Test Results</a>
                 </li>
             </ul>
-            <span class="date-and-time"><a href="build-info.html"><i class="fa fa-info-circle"></i></a> Report generated 2022-11-08 17:25:46</span>
+            <span class="date-and-time"><a href="build-info.html"><i class="fa fa-info-circle"></i></a> Report generated 2022-11-09 15:53:59</span>
             <br style="clear:left"/>
         </div>
         <div class="clr"></div>
@@ -129,7 +129,7 @@
                             <td width="375px" valign="top">
                                 <div class="test-count-summary">
                                     <div class="test-count-title">
-                                        3 test scenarios
+                                        4 test scenarios
                                     </div>
                                 </div>
 
@@ -156,15 +156,15 @@
                                                             </div>
                                                             <script>
                                                                     var labels = [
-                                                                        "66.67%",
+                                                                        "50.0%",
+                                                                        "50.0%",
                                                                         ,
-                                                                        "33.33%",
                                                                         ];
 
                                                                     var series = [
                                                                         {meta: 'Passing tests (automated)', value: 2},
+                                                                        {meta: 'Failing tests (automated)', value: 2},
                                                                         ,
-                                                                        {meta: 'Broken tests (automated)', value: 1},
                                                                         ];
 
                                                                     var options = {
@@ -217,7 +217,7 @@
                                                                                 class='fa fa-check-circle-o success-icon'></i>&nbsp;Passing
                                                                     </td>
                                                                     <td class="automated-stats">2</td>
-                                                                    <td class="automated-stats">66.67%</td>
+                                                                    <td class="automated-stats">50.0%</td>
                                                                 </tr>
                                                                 <tr>
                                                                     <td class="aggregate-result-count"><i
@@ -236,20 +236,20 @@
                                                                         <i
                                                                                 class='fa fa-times-circle failure-icon'></i>&nbsp;Failed
                                                                     </td>
-                                                                    <td class="automated-stats">0</td>
-                                                                    <td class="automated-stats">0.0%</td>
+                                                                    <td class="automated-stats">2</td>
+                                                                    <td class="automated-stats">50.0%</td>
                                                                 </tr>
                                                                 <tr>
                                                                     <td class="aggregate-result-count indented-error-category">
                                                                         <i
                                                                                 class='fa fa-exclamation-triangle error-icon'></i>&nbsp;Error
                                                                     </td>
-                                                                    <td class="automated-stats">1</td>
-                                                                    <td class="automated-stats">33.33%</td>
+                                                                    <td class="automated-stats">0</td>
+                                                                    <td class="automated-stats">0.0%</td>
                                                                 </tr>
                                                                 <tr class="summary-stats">
                                                                     <td class="aggregate-result-count">Total</td>
-                                                                    <td class="automated-stats">3</td>
+                                                                    <td class="automated-stats">4</td>
                                                                     <td class="automated-stats"></td>
                                                                 </tr>
                                                                 </tbody>
@@ -267,7 +267,7 @@
                                                                 </thead>
                                                                 <tbody>
                                                                 <tr>
-                                                                    <td>41.25 s</td>
+                                                                    <td>64.29 s</td>
                                                                 </tr>
                                                                 </tbody>
                                                             </table>
@@ -291,12 +291,12 @@
                                                                 </tr>
                                                                 </thead>
                                                                 <tbody>
-                                                                <tr class='warning'>
-                                                                    <td class="col-xs-10">test_login_0_1
+                                                                <tr class='danger'>
+                                                                    <td class="col-xs-10">test_info_0_1
                                                                     </td>
                                                                     <td class="col-xs-1">
-                                                                        <span class="label label-warning"
-                                                                              style="display:block;width:40px;">Error</span>
+                                                                        <span class="label label-danger"
+                                                                              style="display:block;width:40px;">Fail</span>
                                                                     </td>
                                                                     <td class="col-xs-1">
                                                                         <button class="btn btn-default btn-xs">+</button>
@@ -311,82 +311,21 @@
 [+] Input password
 [+] Click button login
 [+] Wait login finish
+[-] Login fail
 ========== [ End Test ] ========== 
 
 </pre>
-                                                                        <p style="color:maroon;">NoSuchElementException: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//*[@id='HeaderSV_LoginPanel2_lnkLogout']"}
-  (Session info: chrome=107.0.5304.88)
-Stacktrace:
-Backtrace:
-	Ordinal0 [0x007FACD3+2075859]
-	Ordinal0 [0x0078EE61+1633889]
-	Ordinal0 [0x0068B7BD+571325]
-	Ordinal0 [0x006BAC2F+764975]
-	Ordinal0 [0x006BAE1B+765467]
-	Ordinal0 [0x006ED0F2+970994]
-	Ordinal0 [0x006D7364+881508]
-	Ordinal0 [0x006EB56A+963946]
-	Ordinal0 [0x006D7136+880950]
-	Ordinal0 [0x006AFEFD+720637]
-	Ordinal0 [0x006B0F3F+724799]
-	GetHandleVerifier [0x00AAEED2+2769538]
-	GetHandleVerifier [0x00AA0D95+2711877]
-	GetHandleVerifier [0x0088A03A+521194]
-	GetHandleVerifier [0x00888DA0+516432]
-	Ordinal0 [0x0079682C+1665068]
-	Ordinal0 [0x0079B128+1683752]
-	Ordinal0 [0x0079B215+1683989]
-	Ordinal0 [0x007A6484+1729668]
-	BaseThreadInitThunk [0x7618FA29+25]
-	RtlGetAppContainerNamedObjectPath [0x76F97BBE+286]
-	RtlGetAppContainerNamedObjectPath [0x76F97B8E+238]
-</p><p style="color:maroon;">Traceback (most recent call last):
+                                                                        <p style="color:maroon;">AssertionError: 'done' not found in 'fail'</p><p style="color:maroon;">Traceback (most recent call last):
   File "C:\Users\congp\AppData\Local\Programs\Python\Python39\lib\site-packages\parameterized\parameterized.py", line 533, in standalone_func
     return func(*(a + p.args), **p.kwargs)
-  File "e:\DATA_CODE\selenium_testcase\LoginTests.py", line 28, in test_login
-    self.assertIn(desiredMessage, verifyLogin(self.browser).login())
-  File "e:\DATA_CODE\selenium_testcase\verifys\Verify_login.py", line 13, in login
-    self.waitLoginFinish()
-  File "e:\DATA_CODE\selenium_testcase\verifys\Verify_login.py", line 21, in waitLoginFinish
-    if self.driver.find_element(By.XPATH, msg_result()).text:
-  File "C:\Users\congp\AppData\Local\Programs\Python\Python39\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 855, in find_element
-    return self.execute(Command.FIND_ELEMENT, {
-  File "C:\Users\congp\AppData\Local\Programs\Python\Python39\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 428, in execute
-    self.error_handler.check_response(response)
-  File "C:\Users\congp\AppData\Local\Programs\Python\Python39\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 243, in check_response
-    raise exception_class(message, screen, stacktrace)
-selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//*[@id='HeaderSV_LoginPanel2_lnkLogout']"}
-  (Session info: chrome=107.0.5304.88)
-Stacktrace:
-Backtrace:
-	Ordinal0 [0x007FACD3+2075859]
-	Ordinal0 [0x0078EE61+1633889]
-	Ordinal0 [0x0068B7BD+571325]
-	Ordinal0 [0x006BAC2F+764975]
-	Ordinal0 [0x006BAE1B+765467]
-	Ordinal0 [0x006ED0F2+970994]
-	Ordinal0 [0x006D7364+881508]
-	Ordinal0 [0x006EB56A+963946]
-	Ordinal0 [0x006D7136+880950]
-	Ordinal0 [0x006AFEFD+720637]
-	Ordinal0 [0x006B0F3F+724799]
-	GetHandleVerifier [0x00AAEED2+2769538]
-	GetHandleVerifier [0x00AA0D95+2711877]
-	GetHandleVerifier [0x0088A03A+521194]
-	GetHandleVerifier [0x00888DA0+516432]
-	Ordinal0 [0x0079682C+1665068]
-	Ordinal0 [0x0079B128+1683752]
-	Ordinal0 [0x0079B215+1683989]
-	Ordinal0 [0x007A6484+1729668]
-	BaseThreadInitThunk [0x7618FA29+25]
-	RtlGetAppContainerNamedObjectPath [0x76F97BBE+286]
-	RtlGetAppContainerNamedObjectPath [0x76F97B8E+238]
-
+  File "e:\DATA_CODE\selenium_testcase\CheckMyInfor.py", line 31, in test_info
+    self.assertIn("done", actualResult)
+AssertionError: 'done' not found in 'fail'
 </p>
                                                                     </td>
                                                                 </tr>
                                                                 <tr class='success'>
-                                                                    <td class="col-xs-10">test_login_1_2
+                                                                    <td class="col-xs-10">test_info_1_2
                                                                     </td>
                                                                     <td class="col-xs-1">
                                                                         <span class="label label-success"
@@ -405,17 +344,64 @@ Backtrace:
 [+] Input password
 [+] Click button login
 [+] Wait login finish
-Login success
-[+] Wait login finish
-Login success
+[Step] Test my infor
+[+] go to my account
+[+] Check Mssv is correct
+[+] Check Họ Tên is correct
+[+] Check Ngày Sinh is correct
+[+] Check Giới Tính is correct
+Test is successful
 ========== [ End Test ] ========== 
 
 </pre>
                                                                         
                                                                     </td>
                                                                 </tr>
+                                                                <tr class='danger'>
+                                                                    <td class="col-xs-10">test_info_2_3
+                                                                    </td>
+                                                                    <td class="col-xs-1">
+                                                                        <span class="label label-danger"
+                                                                              style="display:block;width:40px;">Fail</span>
+                                                                    </td>
+                                                                    <td class="col-xs-1">
+                                                                        <button class="btn btn-default btn-xs">+</button>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr style="display:none;">
+                                                                    <td class="col-xs-9" colspan="3">
+                                                                        <pre>========== [Begin Test] ==========
+[Open browser] Open google chrome browser
+[Step] Login
+[+] Input username
+[+] Input password
+[+] Click button login
+[+] Wait login finish
+[Step] Test my infor
+[+] go to my account
+[+] Check Mssv is correct
+[+] Check Họ Tên is correct
+[+] Check Ngày Sinh is correct
+========== [ End Test ] ========== 
+
+</pre>
+                                                                        <p style="color:maroon;">AssertionError: 'Nam' != 'Nữ'
+- Nam
++ Nữ
+</p><p style="color:maroon;">Traceback (most recent call last):
+  File "C:\Users\congp\AppData\Local\Programs\Python\Python39\lib\site-packages\parameterized\parameterized.py", line 533, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "e:\DATA_CODE\selenium_testcase\CheckMyInfor.py", line 41, in test_info
+    self.assertEqual(resultAccount[i], [username, HoTen, NgaySinh, GioiTinh][i])
+AssertionError: 'Nam' != 'Nữ'
+- Nam
++ Nữ
+
+</p>
+                                                                    </td>
+                                                                </tr>
                                                                 <tr class='success'>
-                                                                    <td class="col-xs-10">test_login_2_3
+                                                                    <td class="col-xs-10">test_info_3_4
                                                                     </td>
                                                                     <td class="col-xs-1">
                                                                         <span class="label label-success"
@@ -434,9 +420,13 @@ Login success
 [+] Input password
 [+] Click button login
 [+] Wait login finish
-Login success
-[+] Wait login finish
-Login success
+[Step] Test my infor
+[+] go to my account
+[+] Check Mssv is correct
+[+] Check Họ Tên is correct
+[+] Check Ngày Sinh is correct
+[+] Check Giới Tính is correct
+Test is successful
 ========== [ End Test ] ========== 
 
 </pre>

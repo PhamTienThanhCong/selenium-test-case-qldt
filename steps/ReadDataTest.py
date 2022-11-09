@@ -3,8 +3,8 @@ from xlrd import open_workbook
 
 class readDatatest:
 
-    def dataTestLogin(self):
-        data_test = open_workbook('./dataTest/Data_testLogin.xlsx')
+    def dataTestLogin(self,url_data):
+        data_test = open_workbook(url_data)
 
         values = []
         for s in data_test.sheets():

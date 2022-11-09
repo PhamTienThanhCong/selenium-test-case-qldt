@@ -12,8 +12,8 @@ from unittest.result import failfast
 
 from jinja2 import Template
 
-DEFAULT_TEMPLATE = str(Path().absolute()).replace("tests", "Report\ReportHTML\TemplateReport\index.html")
-DEFAULT_TEMPLATE = "E:/DATA_CODE/selenium_testcase/reports/ReportHTML/TemplateReport/index.html"
+# DEFAULT_TEMPLATE = str(Path().absolute()).replace("tests", "Report\ReportHTML\TemplateReport\index.html")
+DEFAULT_TEMPLATE = str(Path().absolute()) + "/reports/ReportHTML/TemplateReport/index.html"
 print("str(Path().absolute()): " + DEFAULT_TEMPLATE)
 
 def load_template(template):
