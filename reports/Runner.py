@@ -38,7 +38,7 @@ class HTMLTestRunner(TextTestRunner):
             raise ValueError("template_args must be a dict-like.")
         self.template_args = template_args or {}
 
-        self.report_title = "Test Demo Report"
+        self.report_title = "Kiểm Thử web Quản Lý Đào Tạo phenikaa"
         self.report_name = report_name
         self.template = template
 

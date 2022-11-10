@@ -20,9 +20,12 @@ class MyTestCase(unittest.TestCase):
         print("========== [ End Test ] ========== \n")
 
     @parameterized.expand(dataTests)
-    def test_login(self, no, username, password):
+    def test_login(self, no, username, password, ValueCheck):
         stepLogin(self.browser).login(username, password)
-        self.assertIn("done", verifyLogin(self.browser).login())
+
+        print("[Step] Check login " + ValueCheck)
+
+        self.assertIn(ValueCheck, verifyLogin(self.browser).login())
 
         print("Test is successful")
 

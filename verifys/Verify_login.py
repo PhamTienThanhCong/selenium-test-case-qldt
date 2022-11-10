@@ -20,8 +20,9 @@ class verifyLogin:
         # get url after login
         url = self.driver.current_url
         if url != "https://qldt.phenikaa-uni.edu.vn/":
+            print("[+] Login success")
             return "done"
         else:
-            print("[-] Login fail")
+            print("[+] Login fail")
             return "fail"
         # return WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((By.XPATH, msg_result())))
