@@ -31,4 +31,4 @@ class MyTestCase(unittest.TestCase):
 
 
 if __name__ == '__main__':
-    unittest.main(testRunner=HTMLTestRunner())
+    unittest.main(testRunner=HTMLTestRunner(report_title = "Đăng nhập"))

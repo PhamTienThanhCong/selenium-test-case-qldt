@@ -17,9 +17,19 @@ def txt_password():
 def bnt_login():
     return "//input[@id = 'LoginControl1_btnDangNhap']"
 
+def redirect_change_my_password():
+    return "//*[@id='HeaderSV_LoginPanel2_lnkChangePassWord']"
 
-def msg_result():
-    return "//*[@id='LoginControl1_lblThong_bao']"
+def txt_new_password():
+    return "//*[@id='NewPassword']"
+def txt_confirm_password():
+    return "//*[@id='ConfirmNewPassword']"
+
+def btn_change():
+    return "//*[@id='ChangePasswordPushButton']"
+
+def btn_logout():
+    return "//*[@id='HeaderSV_LoginPanel2_lnkLogout']"
 
 chrome_options = webdriver.ChromeOptions()
 chrome_options.add_argument("--incognito")
@@ -28,18 +38,15 @@ broser = webdriver.Chrome(chrome_options=chrome_options ,executable_path="./driv
 broser.get('https://qldt.phenikaa-uni.edu.vn/')
 
 account  = "20010886"
-password = "Cong20023"
+password = "Cong2002"
 
 broser.find_element(By.XPATH, txt_username()).send_keys(account)
 broser.find_element(By.XPATH, txt_password()).send_keys(password)
 broser.find_element(By.XPATH, bnt_login()).click()
 
-sleep(5)
+broser.find_element(By.XPATH, redirect_change_my_password()).click()
 
-if broser.find_element(By.XPATH, msg_result()):
-    print("Login success")
-else:
-    print("Login fail")
+sleep(5)
 
 broser.close()
 
