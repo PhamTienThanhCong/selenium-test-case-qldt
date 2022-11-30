@@ -62,4 +62,4 @@ class MyTestCase(unittest.TestCase):
 
 
 if __name__ == '__main__':
-    unittest.main(testRunner=HTMLTestRunner(report_title = "đổi mật khẩu"))
+    unittest.main(testRunner=HTMLTestRunner(report_title = "đổi thông tin cá nhân"))
