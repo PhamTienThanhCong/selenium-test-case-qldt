@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Kiểm Thử chức năng Đăng nhập</title>
+    <title>Kiểm Thử chức năng xem thông tin cá nhân</title>
 
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="theme-color" content="#ffffff">
@@ -97,7 +97,7 @@
             <div id="logo"><a href="#"><img src="../TemplateReport/images/logo.png" border="0" width="200px"/></a></div>
             <div id="projectname-banner" style="float:right">
                 <span class="projectname">
-                    <span class="projecttitle">Kiểm Thử chức năng Đăng nhập</span>
+                    <span class="projecttitle">Kiểm Thử chức năng xem thông tin cá nhân</span>
                     <span class="projectsubtitle"></span>
                 </span>
             </div>
@@ -114,7 +114,7 @@
                     <a href="#"><i class="fa fa-check-square-o"></i> Kết quả kiểm tra </a>
                 </li>
             </ul>
-            <span class="date-and-time"><a href="build-info.html"><i class="fa fa-info-circle"></i></a> Báo cáo được tạo: 2022-11-15 11:52:19</span>
+            <span class="date-and-time"><a href="build-info.html"><i class="fa fa-info-circle"></i></a> Báo cáo được tạo: 2022-11-22 19:29:29</span>
             <br style="clear:left"/>
         </div>
         <div class="clr"></div>
@@ -129,7 +129,7 @@
                             <td width="375px" valign="top">
                                 <div class="test-count-summary">
                                     <div class="test-count-title">
-                                        10 test scenarios
+                                        5 test scenarios
                                     </div>
                                 </div>
 
@@ -162,8 +162,8 @@
                                                                         ];
 
                                                                     var series = [
-                                                                        {meta: 'Passing tests (automated)', value: 8},
-                                                                        {meta: 'Failing tests (automated)', value: 2},
+                                                                        {meta: 'Passing tests (automated)', value: 4},
+                                                                        {meta: 'Failing tests (automated)', value: 1},
                                                                         ,
                                                                         ];
 
@@ -216,7 +216,7 @@
                                                                         <i
                                                                                 class='fa fa-check-circle-o success-icon'></i>&nbsp;Passing
                                                                     </td>
-                                                                    <td class="automated-stats">8</td>
+                                                                    <td class="automated-stats">4</td>
                                                                     <td class="automated-stats">80.0%</td>
                                                                 </tr>
                                                                 <tr>
@@ -236,7 +236,7 @@
                                                                         <i
                                                                                 class='fa fa-times-circle failure-icon'></i>&nbsp;Failed
                                                                     </td>
-                                                                    <td class="automated-stats">2</td>
+                                                                    <td class="automated-stats">1</td>
                                                                     <td class="automated-stats">20.0%</td>
                                                                 </tr>
                                                                 <tr>
@@ -249,7 +249,7 @@
                                                                 </tr>
                                                                 <tr class="summary-stats">
                                                                     <td class="aggregate-result-count">Total</td>
-                                                                    <td class="automated-stats">10</td>
+                                                                    <td class="automated-stats">5</td>
                                                                     <td class="automated-stats"></td>
                                                                 </tr>
                                                                 </tbody>
@@ -267,7 +267,7 @@
                                                                 </thead>
                                                                 <tbody>
                                                                 <tr>
-                                                                    <td>191.09 s</td>
+                                                                    <td>55.71 s</td>
                                                                 </tr>
                                                                 </tbody>
                                                             </table>
@@ -292,7 +292,7 @@
                                                                 </thead>
                                                                 <tbody>
                                                                 <tr class='success'>
-                                                                    <td class="col-xs-10">test_login_0_1
+                                                                    <td class="col-xs-10">test_info_0_1
                                                                     </td>
                                                                     <td class="col-xs-1">
                                                                         <span class="label label-success"
@@ -310,9 +310,14 @@
 [+] Input username
 [+] Input password
 [+] Click button login
-[Step] Check login fail
 [+] Wait login finish
-[+] Login fail
+[+] Login success
+[Step] Test my infor
+[+] go to my account
+[+] Check Mssv is correct
+[+] Check Họ Tên is correct
+[+] Check Ngày Sinh is correct
+[+] Check Giới Tính is correct
 Test is successful
 ========== [ End Test ] ========== 
 
@@ -321,7 +326,7 @@ Test is successful
                                                                     </td>
                                                                 </tr>
                                                                 <tr class='success'>
-                                                                    <td class="col-xs-10">test_login_1_2
+                                                                    <td class="col-xs-10">test_info_1_2
                                                                     </td>
                                                                     <td class="col-xs-1">
                                                                         <span class="label label-success"
@@ -339,9 +344,14 @@ Test is successful
 [+] Input username
 [+] Input password
 [+] Click button login
-[Step] Check login done
 [+] Wait login finish
 [+] Login success
+[Step] Test my infor
+[+] go to my account
+[+] Check Mssv is correct
+[+] Check Họ Tên is correct
+[+] Check Ngày Sinh is correct
+[+] Check Giới Tính is correct
 Test is successful
 ========== [ End Test ] ========== 
 
@@ -350,7 +360,7 @@ Test is successful
                                                                     </td>
                                                                 </tr>
                                                                 <tr class='danger'>
-                                                                    <td class="col-xs-10">test_login_2_3
+                                                                    <td class="col-xs-10">test_info_2_3
                                                                     </td>
                                                                     <td class="col-xs-1">
                                                                         <span class="label label-danger"
@@ -368,23 +378,33 @@ Test is successful
 [+] Input username
 [+] Input password
 [+] Click button login
-[Step] Check login done
 [+] Wait login finish
-[+] Login fail
+[+] Login success
+[Step] Test my infor
+[+] go to my account
+[+] Check Mssv is correct
+[+] Check Họ Tên is correct
+[+] Check Ngày Sinh is correct
 ========== [ End Test ] ========== 
 
 </pre>
-                                                                        <p style="color:maroon;">AssertionError: 'done' not found in 'fail'</p><p style="color:maroon;">Traceback (most recent call last):
+                                                                        <p style="color:maroon;">AssertionError: 'Nữ' != 'Nữ'
+- Nữ
++ Nữ
+</p><p style="color:maroon;">Traceback (most recent call last):
   File "C:\Users\congp\AppData\Local\Programs\Python\Python39\lib\site-packages\parameterized\parameterized.py", line 533, in standalone_func
     return func(*(a + p.args), **p.kwargs)
-  File "e:\DATA_CODE\selenium_testcase\LoginTests.py", line 28, in test_login
-    self.assertIn(ValueCheck, verifyLogin(self.browser).login())
-AssertionError: 'done' not found in 'fail'
+  File "e:\DATA_CODE\selenium_testcase\CheckMyInforTest.py", line 41, in test_info
+    self.assertEqual(resultAccount[i], [username, HoTen, NgaySinh, GioiTinh][i])
+AssertionError: 'Nữ' != 'Nữ'
+- Nữ
++ Nữ
+
 </p>
                                                                     </td>
                                                                 </tr>
                                                                 <tr class='success'>
-                                                                    <td class="col-xs-10">test_login_3_4
+                                                                    <td class="col-xs-10">test_info_3_4
                                                                     </td>
                                                                     <td class="col-xs-1">
                                                                         <span class="label label-success"
@@ -402,9 +422,14 @@ AssertionError: 'done' not found in 'fail'
 [+] Input username
 [+] Input password
 [+] Click button login
-[Step] Check login done
 [+] Wait login finish
 [+] Login success
+[Step] Test my infor
+[+] go to my account
+[+] Check Mssv is correct
+[+] Check Họ Tên is correct
+[+] Check Ngày Sinh is correct
+[+] Check Giới Tính is correct
 Test is successful
 ========== [ End Test ] ========== 
 
@@ -413,7 +438,7 @@ Test is successful
                                                                     </td>
                                                                 </tr>
                                                                 <tr class='success'>
-                                                                    <td class="col-xs-10">test_login_4_5
+                                                                    <td class="col-xs-10">test_info_4_5
                                                                     </td>
                                                                     <td class="col-xs-1">
                                                                         <span class="label label-success"
@@ -431,159 +456,14 @@ Test is successful
 [+] Input username
 [+] Input password
 [+] Click button login
-[Step] Check login fail
-[+] Wait login finish
-[+] Login fail
-Test is successful
-========== [ End Test ] ========== 
-
-</pre>
-                                                                        
-                                                                    </td>
-                                                                </tr>
-                                                                <tr class='success'>
-                                                                    <td class="col-xs-10">test_login_5_6
-                                                                    </td>
-                                                                    <td class="col-xs-1">
-                                                                        <span class="label label-success"
-                                                                              style="display:block;width:40px;">Pass</span>
-                                                                    </td>
-                                                                    <td class="col-xs-1">
-                                                                        <button class="btn btn-default btn-xs">+</button>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr style="display:none;">
-                                                                    <td class="col-xs-9" colspan="3">
-                                                                        <pre>========== [Begin Test] ==========
-[Open browser] Open google chrome browser
-[Step] Login
-[+] Input username
-[+] Input password
-[+] Click button login
-[Step] Check login done
 [+] Wait login finish
 [+] Login success
-Test is successful
-========== [ End Test ] ========== 
-
-</pre>
-                                                                        
-                                                                    </td>
-                                                                </tr>
-                                                                <tr class='success'>
-                                                                    <td class="col-xs-10">test_login_6_7
-                                                                    </td>
-                                                                    <td class="col-xs-1">
-                                                                        <span class="label label-success"
-                                                                              style="display:block;width:40px;">Pass</span>
-                                                                    </td>
-                                                                    <td class="col-xs-1">
-                                                                        <button class="btn btn-default btn-xs">+</button>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr style="display:none;">
-                                                                    <td class="col-xs-9" colspan="3">
-                                                                        <pre>========== [Begin Test] ==========
-[Open browser] Open google chrome browser
-[Step] Login
-[+] Input username
-[+] Input password
-[+] Click button login
-[Step] Check login fail
-[+] Wait login finish
-[+] Login fail
-Test is successful
-========== [ End Test ] ========== 
-
-</pre>
-                                                                        
-                                                                    </td>
-                                                                </tr>
-                                                                <tr class='danger'>
-                                                                    <td class="col-xs-10">test_login_7_8
-                                                                    </td>
-                                                                    <td class="col-xs-1">
-                                                                        <span class="label label-danger"
-                                                                              style="display:block;width:40px;">Fail</span>
-                                                                    </td>
-                                                                    <td class="col-xs-1">
-                                                                        <button class="btn btn-default btn-xs">+</button>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr style="display:none;">
-                                                                    <td class="col-xs-9" colspan="3">
-                                                                        <pre>========== [Begin Test] ==========
-[Open browser] Open google chrome browser
-[Step] Login
-[+] Input username
-[+] Input password
-[+] Click button login
-[Step] Check login done
-[+] Wait login finish
-[+] Login fail
-========== [ End Test ] ========== 
-
-</pre>
-                                                                        <p style="color:maroon;">AssertionError: 'done' not found in 'fail'</p><p style="color:maroon;">Traceback (most recent call last):
-  File "C:\Users\congp\AppData\Local\Programs\Python\Python39\lib\site-packages\parameterized\parameterized.py", line 533, in standalone_func
-    return func(*(a + p.args), **p.kwargs)
-  File "e:\DATA_CODE\selenium_testcase\LoginTests.py", line 28, in test_login
-    self.assertIn(ValueCheck, verifyLogin(self.browser).login())
-AssertionError: 'done' not found in 'fail'
-</p>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr class='success'>
-                                                                    <td class="col-xs-10">test_login_8_9
-                                                                    </td>
-                                                                    <td class="col-xs-1">
-                                                                        <span class="label label-success"
-                                                                              style="display:block;width:40px;">Pass</span>
-                                                                    </td>
-                                                                    <td class="col-xs-1">
-                                                                        <button class="btn btn-default btn-xs">+</button>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr style="display:none;">
-                                                                    <td class="col-xs-9" colspan="3">
-                                                                        <pre>========== [Begin Test] ==========
-[Open browser] Open google chrome browser
-[Step] Login
-[+] Input username
-[+] Input password
-[+] Click button login
-[Step] Check login fail
-[+] Wait login finish
-[+] Login fail
-Test is successful
-========== [ End Test ] ========== 
-
-</pre>
-                                                                        
-                                                                    </td>
-                                                                </tr>
-                                                                <tr class='success'>
-                                                                    <td class="col-xs-10">test_login_9_10
-                                                                    </td>
-                                                                    <td class="col-xs-1">
-                                                                        <span class="label label-success"
-                                                                              style="display:block;width:40px;">Pass</span>
-                                                                    </td>
-                                                                    <td class="col-xs-1">
-                                                                        <button class="btn btn-default btn-xs">+</button>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr style="display:none;">
-                                                                    <td class="col-xs-9" colspan="3">
-                                                                        <pre>========== [Begin Test] ==========
-[Open browser] Open google chrome browser
-[Step] Login
-[+] Input username
-[+] Input password
-[+] Click button login
-[Step] Check login done
-[+] Wait login finish
-[+] Login success
+[Step] Test my infor
+[+] go to my account
+[+] Check Mssv is correct
+[+] Check Họ Tên is correct
+[+] Check Ngày Sinh is correct
+[+] Check Giới Tính is correct
 Test is successful
 ========== [ End Test ] ========== 
 
